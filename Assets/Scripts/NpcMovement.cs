@@ -11,6 +11,7 @@ public class NpcMovement : MonoBehaviour
 
     private float _moveTime;
     private float _standTime;
+    private Vector2 _moveDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class NpcMovement : MonoBehaviour
         {
             // NPC is moving
             _moveTime -= Time.deltaTime;
-            MoveRandomly();
+            myRigidbody.velocity = _moveDirection * speed;
             if (_moveTime <= 0)
             {
                 SetNewStandTime();
@@ -47,20 +48,21 @@ public class NpcMovement : MonoBehaviour
 
     private void MoveRandomly()
     {
-        float randomDirection = Random.Range(0, 1);
-        if (randomDirection < 0.5)
+        var randomDirection = Random.Range(0f, 1f);
+        if (randomDirection < 0.5f)
         {
-            myRigidbody.velocity = Vector2.left * speed;
+            _moveDirection = Vector2.left;
         }
         else
         {
-            myRigidbody.velocity = Vector2.right * speed;
+            _moveDirection = Vector2.right;
         }
     }
 
     private void SetNewMoveTime()
     {
         _moveTime = Random.Range(minMoveTime, maxMoveTime);
+        MoveRandomly();
     }
 
     private void SetNewStandTime()
