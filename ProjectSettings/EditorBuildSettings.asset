@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/office.unity
     guid: 886f75e93f26c185b806298c50a1e076
+  - enabled: 1
+    path: Assets/Scenes/street.unity
+    guid: f359b4e61f0f8101895649a1b07c4911
   m_configObjects: {}
