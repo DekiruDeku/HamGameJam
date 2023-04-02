@@ -1,3 +1,4 @@
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +20,7 @@ public class OnTriggerDoor : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (Input.GetKey(KeyCode.W))
-        {
+        { 
             SceneManager.LoadScene(sceneName: $"{scene}");
             Debug.Log($"Moved to scene {scene}");
         }
